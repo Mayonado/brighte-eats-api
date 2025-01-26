@@ -5,6 +5,7 @@
   "main": "start-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
     "start": "concurrently \"tsc -w\" \"nodemon dist/start-server.js\"",
     "db:migrate": "npx sequelize-cli db:migrate"
   },
