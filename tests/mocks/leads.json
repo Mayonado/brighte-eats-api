@@ -1,14 +1,14 @@
 [
   {
     "service_type": "PAYMENT",
-    "totalNoOfVotes": "10232"
+    "totalNoOfInterests": "10232"
   },
   {
     "service_type": "DELIVERY",
-    "totalNoOfVotes": "5232"
+    "totalNoOfInterests": "5232"
   },
   {
     "service_type": "PICKUP",
-    "totalNoOfVotes": "2322"
+    "totalNoOfInterests": "2322"
   }
 ]

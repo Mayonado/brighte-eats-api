@@ -9,14 +9,12 @@ import { UserInterface } from "../../src/services/user/user.interface"
 import { query } from "../../src/utils/database"
 import { Lead, SERVICE_TYPE, User } from "../../src/model/datamodel"
 import serviceLeads from "../mocks/leads.json"
+import fakeUser from "../mocks/user.json"
 jest.mock("../../src/utils/database")
 
 const leadData = serviceLeads as unknown as Lead[]
 const mockedUser: User = {
-  email: "john.doe@gmail.com",
-  name: "John Doe",
-  mobile: "09232932",
-  postcode: "123",
+  ...fakeUser,
   service_type: SERVICE_TYPE.PAYMENT,
 }
 const randomId = (Math.random() + 1).toString(36).substring(7)
@@ -40,6 +38,7 @@ describe("UserService", () => {
     )
 
     const lead = await userService.lead()
+    console.log(lead)
     expect(lead.service_type).toBeDefined()
     expect(lead.totalNoOfInterests).toBeDefined()
   })

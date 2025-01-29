@@ -3,16 +3,18 @@ services:
   brighte-eats-api:
     build: .
     ports:
-      - 3001:3000
+      - 3001:3001
     environment:
       DB_HOSTNAME: db
       DB_NAME: brighte-eats
       DB_USER: postgres
       DB_PASSWORD: postgres
-
+    networks:
+      - brighte-eats-network
   db:
     image: postgres:16.2-alpine
     restart: always
+    user: postgres
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -25,3 +27,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - brighte-eats-network
+networks:
+  brighte-eats-network:
