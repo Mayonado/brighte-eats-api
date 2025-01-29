@@ -1,5 +1,15 @@
 version: "3.9"
 services:
+  brighte-eats-api:
+    build: .
+    ports:
+      - 3001:3000
+    environment:
+      DB_HOSTNAME: db
+      DB_NAME: brighte-eats
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+
   db:
     image: postgres:16.2-alpine
     restart: always

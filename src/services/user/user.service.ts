@@ -15,7 +15,7 @@ export default class UserService implements UserInterface {
 
   async lead(): Promise<Lead> {
     const qryString =
-      'SELECT service_type, COUNT(id) AS "totalVotes" FROM users GROUP by service_type ORDER BY "totalVotes" LIMIT 1'
+      'SELECT service_type, COUNT(id) AS "totalNoOfInterests" FROM users GROUP by service_type ORDER BY "totalNoOfInterests" LIMIT 1'
     const [lead] = await query<Lead[]>(qryString)
 
     return lead
@@ -23,7 +23,7 @@ export default class UserService implements UserInterface {
 
   async leads(): Promise<Lead[]> {
     const leads = await query<Lead[]>(
-      'SELECT service_type, COUNT(id) AS totalVotes FROM users GROUP BY service_type ORDER BY "totalVotes"'
+      'SELECT service_type, COUNT(id) AS "totalNoOfInterests" FROM users GROUP BY service_type ORDER BY "totalNoOfInterests"'
     )
     return leads
   }

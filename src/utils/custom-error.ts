@@ -1,5 +1,9 @@
-export class InternalServerError extends Error {
-  constructor(public errorType: string) {
-    super(errorType)
+export class CustomError extends Error {
+  constructor(
+    public message: string,
+    public type: string,
+    public title: string
+  ) {
+    super(message)
   }
 }

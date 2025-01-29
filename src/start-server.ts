@@ -2,8 +2,8 @@ import app from "./"
 import cluster from "node:cluster"
 import logger from "./utils/logger"
 
-const port = 3000
-const numCPUs = Number(process.env.CPU || 2)
+const port = 3002
+const numCPUs = Number(process.env.CPU || 1)
 
 // cluster.isPrimary is responsible for respawning node workers
 if (cluster.isPrimary) {

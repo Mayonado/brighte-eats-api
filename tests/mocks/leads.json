@@ -1,0 +1,14 @@
+[
+  {
+    "service_type": "PAYMENT",
+    "totalNoOfVotes": "10232"
+  },
+  {
+    "service_type": "DELIVERY",
+    "totalNoOfVotes": "5232"
+  },
+  {
+    "service_type": "PICKUP",
+    "totalNoOfVotes": "2322"
+  }
+]

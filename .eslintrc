@@ -12,14 +12,11 @@
     "prettier"
   ],
   "rules": {
-    "no-console": ["error"],
+    "no-console": "error",
     "@typescript-eslint/semi": ["error", "never"],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
-        // sometimes it is unavoidable to have a variable declared for looping or forcing a specific method signature
-        // however this would always trigger an error. To overcome that we can name the variable _ when it is needed
-        // for context, but not used further
         "argsIgnorePattern": "^_",
         "varsIgnorePattern": "^_"
       }
