@@ -83,7 +83,7 @@ npm run db:migrate
 
 Make sure to have your database setup and the env variables are setup properly.
 
-3. Run the development server.
+4. Run the development server.
 
 ```bash
 npm start
@@ -91,7 +91,7 @@ npm start
 
 After running the command, the api server will be started on port `3001`
 
-**To run it via Docker.**
+**To run it on Docker.**
 
 Make sure you have your Docker tools such as Docker Desktop, Rancher, etc. installed on your machine.
 
@@ -131,21 +131,19 @@ brighte-eats-api-1  | Running worker with pid 55
 
 ## Test Coverage
 
---------------------|---------|----------|---------|---------|-------------------
-File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
---------------------|---------|----------|---------|---------|-------------------
-All files | 92.09 | 86.66 | 81.81 | 92.09 |  
- graphql | 100 | 100 | 100 | 100 |  
- user.graphql.ts | 100 | 100 | 100 | 100 |  
- services/user | 83.33 | 80 | 80 | 83.33 |  
- user.interface.ts | 0 | 0 | 0 | 0 | 1-6  
- user.service.ts | 100 | 100 | 100 | 100 |  
- utils | 88.04 | 50 | 50 | 88.04 |  
- constants.ts | 100 | 100 | 100 | 100 |  
- custom-error.ts | 100 | 100 | 100 | 100 |  
- database.ts | 70.27 | 100 | 0 | 70.27 | 15,19,23,27,31-37
-logger.ts | 100 | 0 | 100 | 100 | 13  
---------------------|---------|----------|---------|---------|-------------------
+| File              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s |
+| ----------------- | ------- | -------- | ------- | ------- | ----------------- |
+| All files         | 92.09   | 86.66    | 81.81   | 92.09   |
+| graphql           | 100     | 100      | 100     | 100     |
+| user.graphql.ts   | 100     | 100      | 100     | 100     |
+| services/user     | 83.33   | 80       | 80      | 83.33   |
+| user.interface.ts | 0       | 0        | 0       | 0       | 1-6               |
+| user.service.ts   | 100     | 100      | 100     | 100     |
+| utils             | 88.04   | 50       | 50      | 88.04   |
+| constants.ts      | 100     | 100      | 100     | 100     |
+| custom-error.ts   | 100     | 100      | 100     | 100     |
+| database.ts       | 70.27   | 100      | 0       | 70.27   | 15,19,23,27,31-37 |
+| logger.ts         | 100     | 0        | 100     | 100     | 13                |
 
 Test Suites: 2 passed, 2 total<br>
 Tests: 8 passed, 8 total

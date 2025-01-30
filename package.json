@@ -8,8 +8,7 @@
     "start": "node dist/start-server.js",
     "dev": "concurrently \"tsc -w\" \"nodemon dist/start-server.js\"",
     "test": "cross-env NODE_ENV=test jest tests/.*.test.ts",
-    "test:unit": "cross-env NODE_ENV=test jest --watch \" test/unit.*\\.test\\.ts\"",
-    "test:e2e": "cross-env NODE_ENV=test jest --watch \" test/e2e.*\\.test\\.ts\"",
+    "test:unit": "cross-env NODE_ENV=test jest --watch \" tests/unit.*\\.tests\\.ts\"",
     "db:migrate": "npx sequelize-cli db:migrate"
   },
   "keywords": [],
