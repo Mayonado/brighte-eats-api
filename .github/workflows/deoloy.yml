@@ -1,0 +1,50 @@
+name: Deployment (Container)
+on:
+  push:
+    branches:
+      - main
+
+env:
+  CACHE_KEY: node-deps
+jobs:
+  test:
+    environment: test
+    runs-on: ubuntu-latest
+    env:
+      LOG_LEVEL: debug
+      DB_HOSTNAME: localhost
+      DB_NAME: ${{ secrets.DB_NAME }}
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      PORT: 3000
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: ${{ secrets.DB_NAME }}
+          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U ${{ secrets.DB_USER }}"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ env.CACHE_KEY }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Run server
+        run: npm run start:prod & npx wait-on http://localhost:$PORT/
+      - name: Run tests
+        run: npm run test -- --runInBand
+      - name: Output information
+        run: |
+          echo "DATABASE_USERNAME: $DB_USER"

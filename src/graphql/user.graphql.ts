@@ -64,7 +64,6 @@ export class UserResolver {
 
   async lead(): Promise<Lead> {
     const lead = await this.userService.lead()
-    console.log("KEAD", lead)
     return lead
   }
 
