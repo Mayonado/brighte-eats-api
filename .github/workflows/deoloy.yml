@@ -46,6 +46,8 @@ jobs:
           key: ${{ env.CACHE_KEY }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm install
+      - name: Build project
+        run: npm run build
       - name: Run server
         run: npm run start & npx wait-on http://localhost:$PORT/
       - name: Run tests
