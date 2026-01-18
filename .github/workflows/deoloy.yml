@@ -47,7 +47,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run server
-        run: npm run start:prod & npx wait-on http://localhost:$PORT/
+        run: npm run start & npx wait-on http://localhost:$PORT/
       - name: Run tests
         run: npm run test -- --runInBand
       - name: Output information
