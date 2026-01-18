@@ -3,6 +3,16 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: "Log level"
+        required: true
+        default: "warning"
+      environment:
+        description: "Environment to deploy to"
+        required: true
+        default: "development"
 
 env:
   CACHE_KEY: node-deps
