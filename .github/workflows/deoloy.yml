@@ -48,3 +48,4 @@ jobs:
       - name: Output information
         run: |
           echo "DATABASE_USERNAME: $DB_USER"
+          echo "DATABASE_NAME: $DB_NAME"
